@@ -1,21 +1,27 @@
-<h2>My Heroes</h2>
+<h2>My Words</h2>
+
 <div>
-  <label for="new-hero">Hero name: </label>
+  <label for="new-hero">Word: </label>
   <input id="new-hero" #heroName />
 
   <!-- (click) passes input value to add() and then clears the input -->
   <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
-    Add hero
+    Add word
   </button>
 </div>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
+    <div>
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span class="badge">{{hero.id}}</span>
+      {{hero.name}}
     </a>
-    <button type="button" class="delete" title="delete hero"
+    <button type="button" class="delete" title="delete word"
             (click)="delete(hero)">x</button>
+      <a class="trans">
+        <span>{{hero.translation}}</span>
+      </a>
+    </div>
   </li>
 </ul>
-
