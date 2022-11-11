@@ -1,4 +1,10 @@
-<h2>Top Heroes</h2>
+<div class="profile-container" *ngIf="afAuth.authState | async as user">
+  <div>
+   <!-- <span>{{user.displayName}}</span>>-->
+    <button class="nav-link" (click)="authService.signOut()">sign out</button>
+  </div>
+</div>
+<h2>Top Words</h2>
 <div class="heroes-menu">
   <a *ngFor="let hero of heroes"
      routerLink="/detail/{{hero.id}}">

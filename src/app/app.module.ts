@@ -14,6 +14,11 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
+import { LoginComponent} from './login-component/login-component.component';
+import {AuthService} from "./services/auth.service";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {environment} from "../environments/environment";
 
 @NgModule({
   imports: [
@@ -27,7 +32,9 @@ import { MessagesComponent } from './messages/messages.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   declarations: [
     AppComponent,
@@ -35,8 +42,10 @@ import { MessagesComponent } from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    LoginComponent
   ],
+  providers: [AuthService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyDthuIwhetfj-hBqtvfQiFTqreV0RtEN18",
+    authDomain: "tpf-auth.firebaseapp.com",
+    projectId: "tpf-auth",
+    storageBucket: "tpf-auth.appspot.com",
+    messagingSenderId: "1088927305639",
+    appId: "1:1088927305639:web:e019e6c92340142b3ef082"
+  },
+
 };
 
 /*

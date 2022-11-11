@@ -1,7 +1,11 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
+
+<div *ngIf="afAuth.authState | async as user" >
+  <h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Words</a>
+  </nav>
+</div>
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+<app-messages *ngIf="afAuth.authState | async as user"></app-messages>
+
